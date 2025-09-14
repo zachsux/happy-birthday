@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'Daydream';
+    src: url('../fonts/Daydream.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Default';
+    src: url('../fonts/determination.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Default desktop */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* no cropping, black bars may appear */
+    background: black;
+    z-index: -1;
+}
+
+/* Mobile (covers full screen) */
+@media (max-width: 768px) {
+    #bg-video {
+        object-fit: cover; /* fill screen on phones */
+    }
+}
+
+
+/* Content styling */
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px; 
+}
+
+h1:nth-child(1){
+    margin-bottom: 0;
+}
+
+h1{
+    font-size: 1.8em;
+    text-align: center;
+    font-family: 'Daydream', sans-serif;
+    color: rgb(186, 213, 255);
+    text-shadow: 2px 2px 5px rgb(78, 78, 78);
+    margin-top: 0;
+}
+
+h1 span {
+  display: inline-block;
+  animation: wave 1.5s infinite;
+}
+
+h1 span:nth-child(1) { animation-delay: 0s; }
+h1 span:nth-child(2) { animation-delay: 0.1s; }
+h1 span:nth-child(3) { animation-delay: 0.2s; }
+h1 span:nth-child(4) { animation-delay: 0.3s; }
+h1 span:nth-child(5) { animation-delay: 0.4s; }
+h1 span:nth-child(6) { animation-delay: 0.5s; }
+h1 span:nth-child(7) { animation-delay: 0.6s; }
+h1 span:nth-child(8) { animation-delay: 0.7s; }
+h1 span:nth-child(9) { animation-delay: 0.8s; }
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.buttons {
+  /* margin-top: 50px; */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+}
+
+.img-btn {
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.img-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+
+.box {
+    font-family: 'Default', sans-serif;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 0.9rem;
+    text-align: justify;
+    width: 80%;           /* keep landscape size */
+    max-width: 400px;     /* limit size */
+    max-height: 450px;    /* limit height for scrollability */
+    overflow-y: auto;     /* enable vertical scrolling */
+    border: 5px solid rgb(255, 164, 209); /* pink border */
+    border-radius: 12px;  /* rounded corners */
+    box-shadow: 2px 2px 8px rgba(78, 78, 78, 0.5); /* softer shadow */
+    margin-bottom: 30px;  
+    background-color: rgb(252, 204, 228);
+    color: rgb(148, 48, 118);
+    scrollbar-width: thin; /* thinner scrollbar for modern browsers */
+    scrollbar-color: rgb(255, 164, 209) rgb(252, 204, 228); /* custom scrollbar colors */
+}
+
+/* Optional: Custom scrollbar styling for Webkit browsers (Chrome, Edge, Safari) */
+.box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 164, 209); /* scrollbar thumb color */
+    border-radius: 10px;
+}
+
+.box::-webkit-scrollbar-track {
+    background-color: rgb(252, 204, 228); /* scrollbar track color */
+}
+
+
